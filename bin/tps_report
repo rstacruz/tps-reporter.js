@@ -33,6 +33,10 @@ if (cli.flags.json) {
   cli.flags.format = 'json'
 }
 
+if (cli.flags.open) {
+  cli.flags.format = 'html-open'
+}
+
 read(cli.input)
 .then(res => {
   res.files.forEach(file => {
@@ -49,6 +53,13 @@ read(cli.input)
       const render = require('../lib/html_format')
       const output = render(data)
       console.log(output)
+    }
+    else if (cli.flags.format === 'html-open') {
+      const file = require('tempfile')('.html')
+      const render = require('../lib/html_format')
+      const output = render(data)
+      require('fs').writeFileSync(file, output, 'utf-8')
+      require('open')(file)
     }
     // console.log('output:', require('util').inspect(output, { depth: null, colors: true }))
   })
