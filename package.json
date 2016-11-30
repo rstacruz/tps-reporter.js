@@ -6,6 +6,10 @@
   "dependencies": {
     "meow": "3.7.0",
     "parsimmon": "1.0.0",
-    "read-input": "0.3.1"
+    "read-input": "0.3.1",
+    "tape": "4.6.3"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
   }
 }
