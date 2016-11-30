@@ -480,11 +480,14 @@ tape@^4.6.3:
     string.prototype.trim "~1.1.2"
     through "~2.3.8"
 
-taskpaper@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/taskpaper/-/taskpaper-1.1.0.tgz#f654896dc8716da231929cc26702c308e002287e"
+taskpaper@1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/taskpaper/-/taskpaper-1.1.1.tgz#97591b72a648edfd1e5d36c1d45edb3b486f8aed"
   dependencies:
     parsimmon "1.0.0"
+    read-input "0.3.1"
+  optionalDependencies:
+    meow "3.7.0"
 
 tempfile@1.1.1:
   version "1.1.1"

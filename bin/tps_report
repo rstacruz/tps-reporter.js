@@ -44,7 +44,7 @@ read(cli.input)
     if (cli.flags.format === 'cli') {
       const render = require('../lib/cli_format')
       const output = render(data)
-      console.log(data)
+      console.log(output)
     }
     else if (cli.flags.format === 'json') {
       console.log(JSON.stringify(data, null, 2))
@@ -59,6 +59,7 @@ read(cli.input)
       const render = require('../lib/html_format')
       const output = render(data)
       require('fs').writeFileSync(file, output, 'utf-8')
+      console.log(`${file}`)
       require('open')(file)
     }
     // console.log('output:', require('util').inspect(output, { depth: null, colors: true }))
