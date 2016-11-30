@@ -20,7 +20,7 @@ read(cli.input)
 .then(res => {
   res.files.forEach(file => {
     console.log(file.data)
-    var out = TPS.parseTasks(file.data)
-    console.log(out)
+    const output = TPS.parseTasks(file.data)
+    console.log('output:', require('util').inspect(output, { depth: null, colors: true }))
   })
 })

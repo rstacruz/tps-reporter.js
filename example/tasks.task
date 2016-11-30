@@ -1,5 +1,5 @@
 Project:
-  note
-  - task 1
+  - task 1 @done
   - task 2
     - subtask
+    - subtask again
