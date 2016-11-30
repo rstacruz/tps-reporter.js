@@ -1,5 +1,15 @@
 Project:
-  - task 1 @done
-  - task 2
-    - subtask
-    - subtask again
+  User signup:
+    - Register for an account
+    - Log in @done
+    - Forget password
+
+  Manage users:
+    - Create users @in_progress
+    - Delete users
+    - User profile page @40%
+
+  Blog:
+    - Creating new posts @done
+    - Comments @done
+    - Moderating comments @done

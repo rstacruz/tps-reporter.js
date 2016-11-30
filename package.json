@@ -4,13 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "chalk": "1.1.3",
+    "cli-table": "0.3.1",
     "meow": "3.7.0",
-    "parsimmon": "1.0.0",
     "read-input": "0.3.1",
-    "tape": "4.6.3",
     "taskpaper": "1.1.0"
   },
   "scripts": {
     "test": "tape test/*.js"
+  },
+  "devDependencies": {
+    "tape": "^4.6.3"
   }
 }

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const read = require('read-input')
 const parse = require('../lib/parser')
+const format = require('../lib/cli_format')
 
 const cli = require('meow')(`
   Usage:
@@ -19,8 +20,8 @@ const cli = require('meow')(`
 read(cli.input)
 .then(res => {
   res.files.forEach(file => {
-    console.log(file.data)
     const output = parse(file.data)
-    console.log('output:', require('util').inspect(output, { depth: null, colors: true }))
+    format(output)
+    // console.log('output:', require('util').inspect(output, { depth: null, colors: true }))
   })
 })
