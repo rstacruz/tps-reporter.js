@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const read = require('read-input')
 const parse = require('../lib/parser')
-const format = require('../lib/cli_format')
 
 const cli = require('meow')(`
   Usage:
@@ -37,13 +36,19 @@ if (cli.flags.json) {
 read(cli.input)
 .then(res => {
   res.files.forEach(file => {
-    const output = parse(file.data)
+    const data = parse(file.data)
     if (cli.flags.format === 'cli') {
-      format(output)
-    } else if (cli.flags.format === 'json') {
-      console.log(JSON.stringify(output, null, 2))
-    } else if (cli.flags.format === 'html') {
-      console.log('to be implemented')
+      const render = require('../lib/cli_format')
+      const output = render(data)
+      console.log(data)
+    }
+    else if (cli.flags.format === 'json') {
+      console.log(JSON.stringify(data, null, 2))
+    }
+    else if (cli.flags.format === 'html') {
+      const render = require('../lib/html_format')
+      const output = render(data)
+      console.log(output)
     }
     // console.log('output:', require('util').inspect(output, { depth: null, colors: true }))
   })
