@@ -8,20 +8,43 @@ const cli = require('meow')(`
     $ tps_report
 
   Options:
-    -h, --help       show usage information
-    -v, --version    print version info and exit
+    -f, --format FMT   output format (html, json, cli)
+        --html         same as '--format html'
+        --json         same as '--format json'
+
+    -h, --help         show usage information
+    -v, --version      print version info and exit
 `, {
   boolean: ['help', 'version'],
+  string: ['format'],
   alias: {
-    h: 'help', v: 'version'
+    h: 'help', v: 'version',
+    f: 'format'
+  },
+  default: {
+    format: 'cli'
   }
 })
+
+if (cli.flags.html) {
+  cli.flags.format = 'html'
+}
+
+if (cli.flags.json) {
+  cli.flags.format = 'json'
+}
 
 read(cli.input)
 .then(res => {
   res.files.forEach(file => {
     const output = parse(file.data)
-    format(output)
+    if (cli.flags.format === 'cli') {
+      format(output)
+    } else if (cli.flags.format === 'json') {
+      console.log(JSON.stringify(output, null, 2))
+    } else if (cli.flags.format === 'html') {
+      console.log('to be implemented')
+    }
     // console.log('output:', require('util').inspect(output, { depth: null, colors: true }))
   })
 })
