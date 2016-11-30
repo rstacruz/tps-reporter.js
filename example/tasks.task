@@ -1,15 +1,34 @@
-Project:
+My Startup website:
   User signup:
     - Register for an account
     - Log in @done
-    - Forget password
+    - Forget password @75%
+
+  Landing pages:
+    - Home page @done
+    - Style framework @done
+    - Privacy Policy @done
+    - Pricing @done
 
   Manage users:
-    - Create users @in_progress
-    - Delete users
-    - User profile page @40%
+    - Create users
+    - Delete users @20%
+    - User profile page @90%
 
   Blog:
     - Creating new posts @done
     - Comments @done
-    - Moderating comments @done
+    - Moderating comments
+      - Marking as spam
+      - Basic moderation
+
+  Admin:
+    - Basic setup @done
+    - Filtering posts @done
+    - Blog administration
+
+Future features:
+  Spam protection:
+    - Improved spam protection
+    - Configure blacklist domains
+    - DoS protection
