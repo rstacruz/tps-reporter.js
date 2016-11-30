@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const read = require('read-input')
-const TPS = require('../index')
+const parse = require('../lib/parser')
 
 const cli = require('meow')(`
   Usage:
@@ -20,7 +20,7 @@ read(cli.input)
 .then(res => {
   res.files.forEach(file => {
     console.log(file.data)
-    const output = TPS.parseTasks(file.data)
+    const output = parse(file.data)
     console.log('output:', require('util').inspect(output, { depth: null, colors: true }))
   })
 })

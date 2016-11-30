@@ -416,9 +416,9 @@ tape@4.6.3:
     string.prototype.trim "~1.1.2"
     through "~2.3.8"
 
-taskpaper@1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/taskpaper/-/taskpaper-1.0.2.tgz#c3bee80df77cac3309c150a03c5bce013c920c4c"
+taskpaper@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/taskpaper/-/taskpaper-1.1.0.tgz#f654896dc8716da231929cc26702c308e002287e"
   dependencies:
     parsimmon "1.0.0"
 
