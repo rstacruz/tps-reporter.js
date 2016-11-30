@@ -11,7 +11,7 @@
     "number-formatter": "^1.2.0",
     "open": "0.0.5",
     "read-input": "0.3.1",
-    "taskpaper": "1.1.1",
+    "taskpaper": "1.2.0",
     "tempfile": "1.1.1"
   },
   "scripts": {
