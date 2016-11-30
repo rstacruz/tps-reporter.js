@@ -288,6 +288,10 @@ normalize-package-data@^2.3.2, normalize-package-data@^2.3.4:
     semver "2 || 3 || 4 || 5"
     validate-npm-package-license "^3.0.1"
 
+number-formatter@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/number-formatter/-/number-formatter-1.2.0.tgz#1cf99f371fee627be9f5f12fdac79ecb31b88a0f"
+
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
