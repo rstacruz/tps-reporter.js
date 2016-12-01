@@ -1,0 +1,28 @@
+TPS Reporter v1.0.0:
+  Parsing:
+    - TaskPaper parser (npm: taskpaper) @done
+    - TPS transformer @done
+
+  HTML reporter:
+    - HTML reporting @done
+    - Open in browser (--open) @done
+
+  CLI reporter:
+    - CLI reporter @done
+
+  Sprints:
+    - Defining sprints
+    - Displaying sprints in HTML
+    - Displaying sprints in CLI
+
+  Notes:
+    - Consolidating notes
+    - Displaying notes in HTML
+
+  Docs:
+    - Format documentation @done
+
+Future features:
+  People:
+    - Defining people
+    - Displaying people in HTML

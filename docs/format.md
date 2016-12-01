@@ -1,9 +1,7 @@
 File format
 ===========
 
-The tasks file, usually `tasks.taskpaper`, is loosely based off of the [TaskPaper] format.
-
-They're simply a hierarchy of projects and tasks. Projects are lines that end with `:`, and tasks are lines that begin with `- `, with indentation.
+The tasks file, usually `tasks.taskpaper`, is loosely based off of the [TaskPaper] format. They're simply a hierarchy of projects and tasks.
 
 - Tabs (or spaces!) are used to indent.
 - Each task begins with a `- `.
@@ -20,15 +18,20 @@ Edit users:
 Nesting
 -------
 
-You can nest tasks as deep as you like.
+You can nest tasks as deep as you like. Projects and tasks may have sub-projects and tasks.
 
 ``` yaml
-Edit users:
-  - Register and signup
-  - Login and logout
-    - Design for the pages
-    - Responsive
-    - Implement functionality
+Version 1:
+  Edit users:
+    - Register and signup
+    - Login and logout
+      - Design for the pages
+      - Responsive
+      - Implement functionality
+
+  Landing pages:
+    - Home page
+    - Pricing page
 ```
 
 Tagging
@@ -49,7 +52,8 @@ Manage employees: @done
 Done
 ----
 
-Mark tasks as done by adding a `@done` tag.
+Mark tasks as done by adding a `@done` tag. 
+You may also set progress via a percentage like `@50%`. See [§ Tags](#tags) for more information.
 
 ``` yaml
 Make cake:
@@ -57,14 +61,42 @@ Make cake:
   - Bake the cake
 ```
 
-You may also use `x` instead of `-` to mark a task as done. (This is not standard [TaskPaper] behavior.)
+Parent projects and tasks have their progress set based on the progress of their subtasks (and their [points](#points)).
 
 ``` yaml
-Manage user records:
-  - Create user
-  x Edit user
-  x Delete user
-  - Update user
+Make cake:                          # 50% done
+  - Get eggs and flour @done
+  - Bake the cake
+```
+
+Points
+------
+
+Assign points to tasks and projects based on their complexity to monitor progress more accurately.
+
+``` yaml
+Make cake:                          # 4 / 5 complete (80%)
+  - Get eggs and flour @done @4pts  # 4 / 4 complete
+  - Bake the cake                   # 0 / 1 complete
+```
+
+By default, every leaf task/project has 1 point. Every parent has the sum of all their childrens points.
+
+``` yaml
+Make cake:                          # 5 pts (4 + 1)
+  - Get eggs and flour @done @4pts  # 4 pts
+  - Bake the cake                   # 1 pt
+```
+
+Parent overrides
+----------------
+
+You may set points for a parent task. This scales the points of their descendants accordingly. In this example below, *Make cake* project is supposed to be `5pts`. By explicitly setting it to `10pts`, its descendants will have their points multiplied by 2.
+
+``` yaml
+Make cake: @10pts                   # 10 pts
+  - Get eggs and flour @done @4pts  # becomes 8 pts
+  - Bake the cake                   # becomes 2 pts
 ```
 
 Tags
@@ -77,7 +109,7 @@ The following tags are recognized:
  - `@in_progress` *(same as @50%)*
  - `@done` *(same as @100%)*
 
-Example:
+Tags are placed at the end of a task. For projects, they go after the `:`.
 
 ``` yaml
 Employee management:
@@ -100,8 +132,8 @@ Sprints:
 ```
 
 The names are all arbitrary; `s1`..`s3` is just used here for convention; feel
-free to use any string you like. (say, `week1`..`week7` works well for some
-projects.)
+free to use any string you like. `week1`..`week7` works well for some
+projects, for example.
 
 Then use the names as tags (in this case, `@s1`, `@s2`):
 
