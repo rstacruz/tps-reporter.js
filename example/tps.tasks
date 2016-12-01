@@ -2,6 +2,7 @@ TPS Reporter v1.0.0:
   Parsing:
     - TaskPaper parser (npm: taskpaper) @done
     - TPS transformer @done
+    - Points adjustment
 
   HTML reporter:
     - HTML reporting @done
