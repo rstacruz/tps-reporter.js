@@ -49,6 +49,14 @@ Manage employees: @done
   - Edit user
 ```
 
+The following tags are recognized:
+
+ - `@10%` *([task progress](#done))*
+ - `@in_progress` *(same as @50%)*
+ - `@done` *(same as @100%)*
+ - `@0pt` *([points](#points), influences percentage. needs to end in __pt__ or __pts__)*
+
+
 Done
 ----
 
@@ -99,30 +107,10 @@ Make cake: @10pts                   # 10 pts
   - Bake the cake                   # becomes 2 pts
 ```
 
-Tags
-----
-
-The following tags are recognized:
-
- - `@0pt` *(points; influences percentage. needs to end in __pt__ or __pts__)*
- - `@10%` *(task progress)*
- - `@in_progress` *(same as @50%)*
- - `@done` *(same as @100%)*
-
-Tags are placed at the end of a task. For projects, they go after the `:`.
-
-``` yaml
-Employee management:
-  - Creating employees @40%
-  - Editing employees @done @2pts
-```
-
 Sprints
 -------
 
-You can define sprints to help you see the workload of each sprint. First, 
-define your sprints on top of your file like so (this is a TaskPaper project 
-with notes):
+You can define sprints to help you see the workload of each sprint. Define your sprints on top of your file like so:
 
 ``` yaml
 Sprints:
@@ -131,11 +119,11 @@ Sprints:
   s3: Sprint 3 (May 15)
 ```
 
-The names are all arbitrary; `s1`..`s3` is just used here for convention; feel
+The names are arbitrary. `s1`..`s3` is just used here for convention; feel
 free to use any string you like. `week1`..`week7` works well for some
 projects, for example.
 
-Then use the names as tags (in this case, `@s1`, `@s2`):
+Use the names as tags in projects or tasks (in this case, `@s1`, `@s2`):
 
 ``` yaml
 Blog:
