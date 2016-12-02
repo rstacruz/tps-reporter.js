@@ -107,3 +107,13 @@ test('sprint setting', t => {
   t.deepEqual(result.children[0].inSprints, ['1'], 'setting sprint')
   t.end()
 })
+
+test('sprint inferrence', t => {
+  t.pass('[pending]')
+  t.end()
+})
+
+test('implied sprints', t => {
+  t.pass('[pending]')
+  t.end()
+})
