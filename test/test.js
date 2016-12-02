@@ -93,9 +93,9 @@ test('notes', t => {
   t.end()
 })
 
-test.only('sprints', t => {
+test('sprints', t => {
   result = parse('Sprints:\n  1: Sprint 1\n  2: Sprint 2\nProject:')
-  t.deepEqual(result.children[0].type, 'project', 'removing sprints')
+  t.deepEqual(result.children[0].value, 'Project', 'removing sprints')
   t.deepEqual(result.sprints['1'], { id: '1', name: 'Sprint 1', index: 0 }, 'sprint parsing')
   t.deepEqual(result.sprints['2'], { id: '2', name: 'Sprint 2', index: 1 }, 'sprint parsing')
   t.end()
