@@ -4,17 +4,19 @@ const parse = require('../lib/parser')
 
 const cli = require('meow')(`
   Usage:
-    $ tps_report
+    $ tps-report FILE [OPTIONS]
+    $ tps-report [OPTIONS] < FILE
 
   Options:
     -f, --format FMT   output format (html, json, cli)
         --html         same as '--format html'
         --json         same as '--format json'
+        --open         open in browser. implies '--format html'
 
     -h, --help         show usage information
     -v, --version      print version info and exit
 `, {
-  boolean: ['help', 'version'],
+  boolean: ['help', 'version', 'html', 'json', 'open'],
   string: ['format'],
   alias: {
     h: 'help', v: 'version',
