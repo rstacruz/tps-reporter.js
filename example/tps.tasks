@@ -12,12 +12,13 @@ TPS Reporter v1.0.0:
     - CLI reporter @done
 
   Sprints:
-    - Defining sprints
+    - Defining sprints @done
+    - Sprint inheritance
     - Displaying sprints in HTML
     - Displaying sprints in CLI
 
   Notes:
-    - Consolidating notes
+    - Consolidating notes @done
     - Displaying notes in HTML
 
   Docs:
