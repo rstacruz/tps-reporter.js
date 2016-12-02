@@ -70,7 +70,6 @@ test('progress, inferrence (50%)', t => {
   result = parse('- task1 @done\n- task2')
   t.deepEqual(result.points, 2, 'points')
   t.deepEqual(result.progress, 0.5, 'progress')
-
   t.end()
 })
 
@@ -78,13 +77,26 @@ test('progress, inferrence (25%)', t => {
   result = parse('- task1 @50%\n- task2')
   t.deepEqual(result.points, 2, 'points')
   t.deepEqual(result.progress, 0.25, 'progress')
-
   t.end()
 })
 
 test('progress, inferrence with points', t => {
   result = parse('- task1 @50% @8pts\n- task2')
   t.deepEqual(result.progress, 4 / 9, 'progress')
+  t.end()
+})
 
+test('notes', t => {
+  result = parse('Project:\n  hello')
+  t.deepEqual(result.children[0].type, 'project', 'project')
+  t.deepEqual(result.children[0].notes, 'hello', 'consolidating notes')
+  t.end()
+})
+
+test.only('sprints', t => {
+  result = parse('Sprints:\n  1: Sprint 1\n  2: Sprint 2\nProject:')
+  t.deepEqual(result.children[0].type, 'project', 'removing sprints')
+  t.deepEqual(result.sprints['1'], { id: '1', name: 'Sprint 1', index: 0 }, 'sprint parsing')
+  t.deepEqual(result.sprints['2'], { id: '2', name: 'Sprint 2', index: 1 }, 'sprint parsing')
   t.end()
 })
