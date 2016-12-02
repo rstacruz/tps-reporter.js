@@ -93,10 +93,17 @@ test('notes', t => {
   t.end()
 })
 
-test('sprints', t => {
+test('sprint definitions', t => {
   result = parse('Sprints:\n  1: Sprint 1\n  2: Sprint 2\nProject:')
   t.deepEqual(result.children[0].value, 'Project', 'removing sprints')
   t.deepEqual(result.sprints['1'], { id: '1', name: 'Sprint 1', index: 0 }, 'sprint parsing')
   t.deepEqual(result.sprints['2'], { id: '2', name: 'Sprint 2', index: 1 }, 'sprint parsing')
+  t.end()
+})
+
+test('sprint setting', t => {
+  result = parse('Sprints:\n  1: Sprint 1\n  2: Sprint 2\n- My task @1')
+  t.deepEqual(result.children[0].value, 'My task', 'task value')
+  t.deepEqual(result.children[0].inSprints, ['1'], 'setting sprint')
   t.end()
 })
