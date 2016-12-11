@@ -1,8 +1,14 @@
 {
   "name": "tps",
+  "description": "> Task progress sheet reporter",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "author": "Rico Sta. Cruz <rico@ricostacruz.com> (http://ricostacruz.com)",
+  "bin": {
+    "tps-report": "bin/tps-report"
+  },
+  "bugs": {
+    "url": "https://github.com/rstacruz/tps-reporter.js/issues"
+  },
   "dependencies": {
     "chalk": "1.1.3",
     "cli-table": "0.3.1",
@@ -14,13 +20,23 @@
     "taskpaper": "1.2.0",
     "tempfile": "1.1.1"
   },
-  "scripts": {
-    "test": "tape test/*.js"
-  },
   "devDependencies": {
     "tape": "^4.6.3"
   },
-  "bin": {
-    "tps-report": "bin/tps-report"
+  "directories": {
+    "doc": "docs",
+    "example": "example",
+    "test": "test"
+  },
+  "homepage": "https://github.com/rstacruz/tps-reporter.js#readme",
+  "keywords": [],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rstacruz/tps-reporter.js.git"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
   }
 }
