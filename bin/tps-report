@@ -53,7 +53,7 @@ read(cli.input)
     }
     else if (cli.flags.format === 'html') {
       const render = require('../lib/html_format')
-      const output = render(data)
+      const output = render(data, { src: file.data })
       console.log(output)
     }
     else if (cli.flags.format === 'html-open') {
