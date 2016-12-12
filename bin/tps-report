@@ -42,7 +42,9 @@ if (cli.flags.open) {
 read(cli.input)
 .then(res => {
   res.files.forEach(file => {
-    const data = parse(file.data)
+    const src = file.data
+    const data = parse(src)
+
     if (cli.flags.format === 'cli') {
       const render = require('../lib/cli_format')
       const output = render(data)
@@ -53,13 +55,13 @@ read(cli.input)
     }
     else if (cli.flags.format === 'html') {
       const render = require('../lib/html_format')
-      const output = render(data, { src: file.data })
+      const output = render(data, { src })
       console.log(output)
     }
     else if (cli.flags.format === 'html-open') {
       const file = require('tempfile')('.html')
       const render = require('../lib/html_format')
-      const output = render(data)
+      const output = render(data, { src })
       require('fs').writeFileSync(file, output, 'utf-8')
       console.log(`${file}`)
       require('open')(file)
