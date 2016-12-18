@@ -13,12 +13,16 @@ test('points, inferrence', t => {
 test('points, default', t => {
   result = parse('- task1')
   t.deepEqual(result.children[0].points, 1, 'points')
+  t.deepEqual(result.children[0].infPoints, 1, 'infPoints')
+  t.deepEqual(result.children[0].exPoints, undefined, 'exPoints')
   t.end()
 })
 
 test('points, overriding', t => {
   result = parse('- task1 @3pts')
   t.deepEqual(result.children[0].points, 3, 'points')
+  t.deepEqual(result.children[0].infPoints, 1, 'infPoints')
+  t.deepEqual(result.children[0].exPoints, 3, 'exPoints')
   t.end()
 })
 
@@ -43,18 +47,24 @@ test('points, overriding and inferrence', t => {
 test('progress, done', t => {
   result = parse('- task1 @done')
   t.deepEqual(result.children[0].progress, 1, 'progress')
+  t.deepEqual(result.children[0].infProgress, 0, 'infProgress')
+  t.deepEqual(result.children[0].exProgress, 1, 'exProgress')
   t.end()
 })
 
 test('progress, in progress', t => {
   result = parse('- task1 @in_progress')
   t.deepEqual(result.children[0].progress, 0.5, 'progress')
+  t.deepEqual(result.children[0].infProgress, 0, 'infProgress')
+  t.deepEqual(result.children[0].exProgress, 0.5, 'exProgress')
   t.end()
 })
 
 test('progress, percentage', t => {
   result = parse('- task1 @20%')
   t.deepEqual(result.children[0].progress, 0.2, 'progress')
+  t.deepEqual(result.children[0].infProgress, 0, 'infProgress')
+  t.deepEqual(result.children[0].exProgress, 0.2, 'exProgress')
   t.end()
 })
 
@@ -62,6 +72,7 @@ test('progress, inferrence (0%)', t => {
   result = parse('- task1\n- task2')
   t.deepEqual(result.points, 2, 'points')
   t.deepEqual(result.progress, 0, 'progress')
+  t.deepEqual(result.infProgress, 0, 'infProgress')
 
   t.end()
 })
@@ -70,6 +81,7 @@ test('progress, inferrence (50%)', t => {
   result = parse('- task1 @done\n- task2')
   t.deepEqual(result.points, 2, 'points')
   t.deepEqual(result.progress, 0.5, 'progress')
+  t.deepEqual(result.infProgress, 0.5, 'infProgress')
   t.end()
 })
 
@@ -83,6 +95,7 @@ test('progress, inferrence (25%)', t => {
 test('progress, inferrence with points', t => {
   result = parse('- task1 @50% @8pts\n- task2')
   t.deepEqual(result.progress, 4 / 9, 'progress')
+  t.deepEqual(result.infProgress, 4 / 9, 'infProgress')
   t.end()
 })
 

@@ -20,12 +20,12 @@ Has these additional fields.
 
 List of sprint names. This should actually be called `sprints`, but Document already has a `sprints` field which means something else.
 
-### exSprintIds
+### exSprintIds (TBI)
 > `String[]`
 
 Explicit list of sprints ("explicit sprints").
 
-### infSprintIds
+### infSprintIds (TBI)
 > `String[]`
 
 Sprints of the descendants ("inferred sprints").
@@ -38,12 +38,27 @@ The actual number of points. If `exPoints` is available, `points` is equal to th
 ### exPoints
 > `Number?`
 
-Explicit number of points ("explicit points"). TBI.
+Explicit number of points ("explicit points").
 
 ### infPoints
 > `Number`
 
 Inferred number of points ("inferred points").
+
+### progress
+> `Number`
+
+Progress from `0`...`1`.
+
+### infProgress
+> `Number`
+
+Inferred progress.
+
+### exProgress
+> `Number?`
+
+Explicit progress.
 
 ## Sprint
 
