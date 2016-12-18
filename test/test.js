@@ -104,7 +104,7 @@ test('sprint definitions', t => {
 test('sprint setting', t => {
   result = parse('Sprints:\n  1: Sprint 1\n  2: Sprint 2\n- My task @1')
   t.deepEqual(result.children[0].value, 'My task', 'task value')
-  t.deepEqual(result.children[0].inSprints, ['1'], 'setting sprint')
+  t.deepEqual(result.children[0].sprintIds, ['1'], 'setting sprint')
   t.end()
 })
 
