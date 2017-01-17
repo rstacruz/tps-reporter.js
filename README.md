@@ -4,6 +4,22 @@
 
 Use this to estimate how far a project is done, and help schedule the rest of the work.
 
+## Usage
+
+```sh
+npm install -g rstacruz/tps-reporter.js    # via npm
+yarn global add rstacruz/tps-reporter.js   # via yarnpkg.com
+```
+
+Usage:
+
+```sh
+tps-report --help
+
+tps-report project.tasks --open   # open in browser
+tps-report project.tasks          # show in CLI
+```
+
 ## How it works
 
 Create a project file `project.tasks`. See [Format documentation](docs/format.md) for details.

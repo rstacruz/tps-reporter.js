@@ -1,6 +1,6 @@
 {
-  "name": "tps",
-  "description": "> Task progress sheet reporter",
+  "name": "tps-reporter",
+  "description": "Task progress sheet reporter",
   "version": "1.0.0",
   "author": "Rico Sta. Cruz <rico@ricostacruz.com> (http://ricostacruz.com)",
   "bin": {
@@ -21,6 +21,7 @@
     "tempfile": "1.1.1"
   },
   "devDependencies": {
+    "@rstacruz/jsdoc-render-md": "1.3.1",
     "tape": "^4.6.3"
   },
   "directories": {
